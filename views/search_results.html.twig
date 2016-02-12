@@ -8,11 +8,12 @@
         <title></title>
     </head>
     <body>
-
-        <h2>Contacts Matching Your Search:</h2>
+        <div class="jumbotron">
+            <h2>Contacts Matching Your Search:</h2>
+        </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 newContactBox">
                     <h2>Add a Contact:</h2>
 
                           <form id="new-contact" action="/create_contact" method="post">
@@ -56,25 +57,34 @@
 
                             <button type="submit" class="btn btn-success">Add New Contact</button>
 
+
                         </form>
+
+
+
+                        <div class="container delete" >
+                            <h4>Warning: This Will Delete All Contacts</h4>
+                            <form action="/delete" method="get">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete ALL contacts</button>
+                                 </div>
+                             </form>
+                         </div>
+
+                </div>
+                <div class="col-md-8">
+                    <h2>Your Search Results</h2>
+                    <div class="searchbox">
+
                         <form action="/search" method="post">
                             <div class="form-group">
                               <label for="search">Search by Name:</label>
                               <input type="text" name="search" class="form-control search">
                             </div>
                             <button type="submit" class="btn btn-primary">Search By Name</button>
+                            <button type="submit" class="btn btn-info"><a href="/">View All Contacts</a></button>
                        </form>
-                       <form>
-                           <button type="submit" class="btn btn-info"><a href="/">View All Contacts</a></button>
-                        </form>
-                        <form action="/delete" method="get">
-                             <button type="submit" class="btn btn-danger">Delete ALL contacts</button>
-                         </form>
-
-                </div>
-                <div class="col-md-8">
-                    <h2>Your Contacts</h2>
-
+                    </div>
                     {% if results is not empty %}
                         {%for result in results %}
                             <div class="result">
@@ -88,6 +98,7 @@
                     {% if results is empty %}
                         <h3> Sorry, No Results for that Search</h3>
                     {% endif %}
+
                 </div>
             </div>
 
