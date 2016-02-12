@@ -13,16 +13,23 @@
     ));
 
     $app->get("/", function() use ($app){
+        $contactList = $_SESSION['list_of_contacts'];
 
-        return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('index.html.twig', array('contacts'=>$contactList));
 
     });
 
     $app->post("/create_contact", function() use ($app){
-        $newContact = new Contact ($_POST['first-name'], $_POST['last-name'], $_POST['phone'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['email']);
+        $newContact = new Contact ($_POST['first-name'], $_POST['last-name'], $_POST['phone'], $_POST['street'], $_POST['city'], $_POST['state'], $_POST['zip'], $_POST['email']);
         $newContact->saveContact();
 
         return $app['twig']->render('create_contact.html.twig', array("newContact"=>$newContact));
+    });
+
+    $app->get("/delete", function() use ($app){
+        Contact::deleteAll();
+        return $app['twig']->render('index.html.twig');
+
     });
 
     return $app;

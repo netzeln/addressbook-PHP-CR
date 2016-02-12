@@ -6,10 +6,11 @@ class Contact {
     private $street;
     private $city;
     private $state;
+    private $zipCode;
     private $email;
 
     function __construct($firstname, $lastname, $phone, $street, $city,
-    $state, $email)
+    $state, $zipCode, $email)
     {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -17,6 +18,7 @@ class Contact {
         $this->street = $street;
         $this->city = $city;
         $this->state = $state;
+        $this->zipCode= $zipCode;
         $this->email = $email;
     }
 
@@ -72,9 +74,17 @@ class Contact {
     }
     function getState()
     {
-        return $this->city;
+        return $this->state;
     }
 
+    function setZipCode($newZipCode)
+    {
+        $this->zipCode = $newZipCode;
+    }
+    function getZipCode()
+    {
+        return $this->zipCode;
+    }
     function setEmail($newEmail)
     {
         $this->email = $newEmail;
@@ -87,6 +97,11 @@ class Contact {
     function fullName()
     {
         return $this->firstname . " " . $this->lastname;
+    }
+
+    function fullAddress()
+    {
+        return $this->street . ", "  . $this->city . ", " . $this->state . " " . $this->zipCode;
     }
 
     function saveContact()
