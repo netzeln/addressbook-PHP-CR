@@ -94,6 +94,7 @@ class Contact {
         return $this->email;
     }
 
+
     function fullName()
     {
         return $this->firstname . " " . $this->lastname;
@@ -108,6 +109,7 @@ class Contact {
     {
         array_push($_SESSION['list_of_contacts'], $this);
     }
+
 
     static function searchName($contacts, $search_term)
     {

@@ -16,48 +16,48 @@
                 <div class="col-md-4 newContactBox">
                     <h2>Add a Contact:</h2>
 
-                          <form id="new-contact" action="/create_contact" method="post">
-                            <div class="form-group">
-                              <label for="first-name">First Name</label>
-                              <input type="text"  name="first-name" class="form-control" id="first-name" required>
-                            </div>
-                            <div class="form-group">
-                              <label for="last-name">Last Name</label>
-                              <input type="text" name="last-name" class="form-control" id="last-name" required>
-                            </div>
-                            <div id="new-addresses">
-                              <div class="new-address">
+                            <form id="new-contact" action="/create_contact" method="post">
                                 <div class="form-group">
-                                  <label for="street">Street</label>
-                                  <input type="text" name="street"class="form-control street" required>
+                                    <label for="first-name">First Name</label>
+                                    <input type="text"  name="first-name" class="form-control" id="first-name" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="city">City</label>
-                                  <input type="text" name="city"class="form-control city" required>
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" name="last-name" class="form-control" id="last-name" required>
                                 </div>
-                                <div class="form-group">
-                                  <label for="state">State</label>
-                                  <input type="text" name="state" class="form-control state" required>
+                                <div id="new-addresses">
+                                    <div class="new-address">
+                                        <div class="form-group">
+                                            <label for="street">Street</label>
+                                            <input type="text" name="street"class="form-control street" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="city">City</label>
+                                            <input type="text" name="city"class="form-control city" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <input type="text" name="state" class="form-control state" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="zip">Zip</label>
+                                            <input type="number" name="zip" class="form-control zip" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="tel" name="phone" class="form-control phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control new-phone">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                  <label for="zip">Zip</label>
-                                  <input type="number" name="zip" class="form-control zip" required>
-                                </div>
-                                <div class="form-group">
-                                  <label for="phone">Phone Number</label>
-                                  <input type="tel" name="phone" class="form-control phone">
-                                </div>
-                                <div class="form-group">
-                                  <label for="email">Email</label>
-                                  <input type="email" name="email" class="form-control new-phone">
-                                </div>
-                              </div>
-                            </div>
 
 
-                            <button type="submit" class="btn btn-success">Add New Contact</button>
+                                <button type="submit" class="btn btn-success">Add New Contact</button>
 
-                        </form>
+                            </form>
                         <div class="container delete" >
                             <h4>Warning: This Will Delete All Contacts</h4>
                             <form action="/delete" method="get">
@@ -65,7 +65,7 @@
                                     <button type="submit" class="btn btn-danger">Delete ALL contacts</button>
                                  </div>
                              </form>
-                         </div>
+                        </div>
                 </div>
                 <div class="col-md-8">
                     <h2>Your Contacts</h2>
@@ -73,8 +73,8 @@
 
                         <form action="/search" method="post">
                             <div class="form-group">
-                              <label for="search">Search by Name:</label>
-                              <input type="text" name="search" class="form-control search">
+                                <label for="search">Search by Name:</label>
+                                <input type="text" name="search" class="form-control search">
                             </div>
                             <button type="submit" class="btn btn-primary">Search By Name</button>
                        </form>
