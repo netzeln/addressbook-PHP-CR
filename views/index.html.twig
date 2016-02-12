@@ -90,6 +90,9 @@
                             </div>
                         {% endfor %}
                     {% endif %}
+                    {% if contacts is empty%}
+                        <h3>No Contacts in Address Book</h3>
+                    {% endif %}
 
                 </div>
             </div>
