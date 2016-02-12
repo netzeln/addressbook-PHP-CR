@@ -8,6 +8,8 @@
         <title></title>
     </head>
     <body>
+
+        <h2>Contacts Matching Your Search:</h2>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -55,7 +57,6 @@
                             <button type="submit" class="btn btn-success">Add New Contact</button>
 
                         </form>
-
                         <form action="/search" method="post">
                             <div class="form-group">
                               <label for="search">Search by Name:</label>
@@ -63,27 +64,36 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Search By Name</button>
                        </form>
-
+                       <form>
+                           <button type="submit" class="btn btn-info"><a href="/">View All Contacts</a></button>
+                        </form>
                         <form action="/delete" method="get">
                              <button type="submit" class="btn btn-danger">Delete ALL contacts</button>
-                        </form>
+                         </form>
 
                 </div>
                 <div class="col-md-8">
                     <h2>Your Contacts</h2>
 
-                    {% if contacts is not empty %}
-                        {%for contact in contacts %}
-                            <div class="contact">
-                                <p> <strong>{{contact.fullName}}</strong><br>
-                                    {{contact.fullAddress}}<br>
-                                    {{contact.phone}}<br>
-                                    <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+                    {% if results is not empty %}
+                        {%for result in results %}
+                            <div class="result">
+                                <p> <strong>{{result.fullName}}</strong><br>
+                                    {{result.fullAddress}}<br>
+                                    {{result.phone}}<br>
+                                    <a href="mailto:{{result.email}}">{{result.email}}</a>
                             </div>
                         {% endfor %}
                     {% endif %}
+                    {% if results is empty %}
+                        <h3> Sorry, No Results for that Search</h3>
+                    {% endif %}
                 </div>
             </div>
-        </div>
+
+
+
+
+
     </body>
 </html>

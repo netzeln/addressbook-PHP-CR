@@ -109,6 +109,25 @@ class Contact {
         array_push($_SESSION['list_of_contacts'], $this);
     }
 
+    static function searchName($contacts, $search_term)
+    {
+        $search_results = array();
+        $found = (strtoupper($search_term));
+        $search_terms = explode(" ", $found);
+
+        foreach($search_terms as $term){
+            foreach($contacts as $contact){
+                if (strpos(strtoupper($contact->fullName()), $term) !== false)
+                {
+                    array_push($search_results, $contact);
+                }
+
+            }
+        }
+
+        return $search_results;
+    }
+
     static function getAll()
     {
         return $_SESSION['list_of_contacts'];

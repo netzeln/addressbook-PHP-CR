@@ -26,6 +26,14 @@
         return $app['twig']->render('create_contact.html.twig', array("newContact"=>$newContact));
     });
 
+    $app->post("/search", function() use ($app){
+        $contacts = $_SESSION['list_of_contacts'];
+        $search_term = $_POST['search'];
+        $search_results = Contact::searchName($contacts, $search_term);
+
+        return $app['twig']->render('search_results.html.twig', array('results'=>$search_results));
+    });
+
     $app->get("/delete", function() use ($app){
         Contact::deleteAll();
         return $app['twig']->render('index.html.twig');
